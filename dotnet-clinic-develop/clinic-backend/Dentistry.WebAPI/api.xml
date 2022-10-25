@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Clinic.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:Dentistry.WebAPI.AppConfigure.ApplicationExtensions.AppExtensions">
+            <summary>
+            Application builder extensions
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.AppConfigure.ApplicationExtensions.AppExtensions.UseSerilogConfiguration(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Use serilog configuration
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:Dentistry.WebAPI.AppConfigure.ApplicationExtensions.AppExtensions.UseSwaggerConfiguration(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Use swagger configuration
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="T:Dentistry.WebAPI.AppConfigure.ServicesExtensions.ServicesExtensions">
+            <summary>
+            Services extensions
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.AppConfigure.ServicesExtensions.ServicesExtensions.AddSerilogConfiguration(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Add serilog configuration
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:Dentistry.WebAPI.AppConfigure.ServicesExtensions.ServicesExtensions.AddSwaggerConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add swagger settings
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Dentistry.WebAPI.AppConfigure.ServicesExtensions.ServicesExtensions.AddVersioningConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure versioning
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Dentistry.WebAPI.Controllers.DoctorsController">
+            <summary>
+            Doctors endpoints
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.DoctorsController.#ctor">
+            <summary>
+            Doctors controller
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.DoctorsController.GetDoctors">
+            <summary>
+            Get doctors
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
