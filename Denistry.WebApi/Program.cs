@@ -1,5 +1,5 @@
-using Dentistry.WebAPI.AppConfigure.ApplicationExtensions;
-using Dentistry.WebAPI.AppConfigure.ServicesExtensions;
+using Dentistry.WebAPI.AppConfiguration.ApplicationExtensions;
+using Dentistry.WebAPI.AppConfiguration.ServicesExtensions;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
