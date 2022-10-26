@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Dentistry.WebAPI.AppConfigure.ServicesExtensions
+namespace Dentistry.WebAPI.AppConfiguration.ServicesExtensions
 {
     /// <summary>
     /// Services extensions
