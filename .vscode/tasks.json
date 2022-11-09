@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/dotnet-clinic-develop/clinic-backend/Clinic.WebAPI/Clinic.WebAPI.csproj",
+                "${workspaceFolder}/Dentistry.WebAPI/Dentistry.WebAPI.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/dotnet-clinic-develop/clinic-backend/Clinic.WebAPI/Clinic.WebAPI.csproj",
+                "${workspaceFolder}/Dentistry.WebAPI/Dentistry.WebAPI.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/dotnet-clinic-develop/clinic-backend/Clinic.WebAPI/Clinic.WebAPI.csproj"
+                "${workspaceFolder}/Dentistry.WebAPI/Dentistry.WebAPI.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
