@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
-namespace Dentistry.WebAPI.AppConfiguration.ApplicationExtensions
+namespace Dentistry.AppConfiguration.ApplicationExtensions
 {
     /// <summary>
     /// Application builder extensions

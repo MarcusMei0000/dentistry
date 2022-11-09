@@ -13,9 +13,15 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
+<<<<<<< HEAD
             "program": "${workspaceFolder}//Dentistry.WebAPI/bin/Debug/net6.0//Dentistry.WebAPI.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Dentistry.WebAPI",
+=======
+            "program": "${workspaceFolder}/bin/Debug/net6.0/Dentistry.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+>>>>>>> 5b694e3b8eb24ee525a0709e3018ca03dbbeac6d
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {

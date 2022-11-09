@@ -1,6 +1,6 @@
 ﻿using Serilog;
 
-namespace Dentistry.WebAPI.AppConfiguration.ServicesExtensions
+namespace Dentistry.AppConfiguration.ServicesExtensions
 {
     public static partial class ServicesExtensions
     {
