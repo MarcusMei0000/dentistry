@@ -1,9 +1,0 @@
-[20:07:41:439 INF (fc60697f-e8bc-4507-8410-876baebf4b9f)] HTTP GET /swagger responded 301 in 122.8721 ms
-[20:07:41:607 INF (d7ec2706-5bb5-4f62-aaf0-6531c899a110)] HTTP GET /swagger/index.html responded 200 in 104.8505 ms
-[20:07:41:697 INF (082558d9-5d02-4452-84db-e43c70b4628d)] HTTP GET /swagger/swagger-ui.css responded 200 in 26.5324 ms
-[20:07:41:764 INF (ead6c7f7-e169-4976-8d29-b44c06c86ff1)] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 56.8359 ms
-[20:07:41:770 INF (fa83069b-ea92-4aa4-849c-00f6395857c6)] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 63.7105 ms
-[20:07:42:094 INF (5834da13-1423-4037-9cf8-2cffafebd787)] HTTP GET /swagger/v1/swagger.json responded 200 in 59.1792 ms
-[20:07:42:097 INF (c9ee2129-41fb-4257-ae05-5ece44b79ba7)] HTTP GET /swagger/favicon-32x32.png responded 200 in 0.4887 ms
-[20:08:21:342 INF (eb6f48e5-d5d2-44f7-a84a-3a4efb5c523b)] HTTP GET /swagger/v1/swagger.json responded 200 in 0.4587 ms
-[20:08:21:568 INF (cf7020c3-ed3f-4f8d-ba25-efebd0278dd5)] HTTP GET /favicon.ico responded 404 in 3.7207 ms
