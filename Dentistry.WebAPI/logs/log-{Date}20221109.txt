@@ -1,0 +1,28 @@
+[19:50:55:365 INF ()] Now listening on: https://localhost:5000
+[19:50:55:487 INF ()] Application started. Press Ctrl+C to shut down.
+[19:50:55:488 INF ()] Hosting environment: Development
+[19:50:55:488 INF ()] Content root path: D:\!Polina\ВГУ\.NET\dentistry\Dentistry.WebAPI\
+[19:52:08:614 INF ()] Now listening on: https://localhost:5000
+[19:52:08:697 INF ()] Application started. Press Ctrl+C to shut down.
+[19:52:08:697 INF ()] Hosting environment: Development
+[19:52:08:698 INF ()] Content root path: D:\!Polina\ВГУ\.NET\dentistry\Dentistry.WebAPI\
+[19:54:19:702 INF ()] Now listening on: https://localhost:5000
+[19:54:19:796 INF ()] Application started. Press Ctrl+C to shut down.
+[19:54:19:797 INF ()] Hosting environment: Development
+[19:54:19:798 INF ()] Content root path: D:\!Polina\ВГУ\.NET\dentistry\Dentistry.WebAPI\
+[20:00:11:472 INF ()] Now listening on: https://localhost:8000
+[20:00:11:559 INF ()] Application started. Press Ctrl+C to shut down.
+[20:00:11:560 INF ()] Hosting environment: Development
+[20:00:11:560 INF ()] Content root path: D:\!Polina\ВГУ\.NET\dentistry\Dentistry.WebAPI\
+[20:01:58:318 INF ()] Now listening on: https://localhost:443
+[20:01:58:433 INF ()] Application started. Press Ctrl+C to shut down.
+[20:01:58:434 INF ()] Hosting environment: Development
+[20:01:58:434 INF ()] Content root path: D:\!Polina\ВГУ\.NET\dentistry\Dentistry.WebAPI\
+[20:06:38:616 INF ()] Now listening on: https://[::]:443
+[20:06:38:726 INF ()] Application started. Press Ctrl+C to shut down.
+[20:06:38:727 INF ()] Hosting environment: Development
+[20:06:38:727 INF ()] Content root path: D:\!Polina\ВГУ\.NET\dentistry\Dentistry.WebAPI\
+[20:07:23:008 INF ()] Now listening on: https://localhost:5000
+[20:07:23:121 INF ()] Application started. Press Ctrl+C to shut down.
+[20:07:23:122 INF ()] Hosting environment: Development
+[20:07:23:123 INF ()] Content root path: D:\!Polina\ВГУ\.NET\dentistry\Dentistry.WebAPI\
