@@ -26,6 +26,12 @@
             Services extensions
             </summary>
         </member>
+        <member name="M:Dentistry.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddDbContextConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add serilog configuration
+            </summary>
+            <param name="builder"></param>
+        </member>
         <member name="M:Dentistry.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddSerilogConfiguration(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
             <summary>
             Add serilog configuration

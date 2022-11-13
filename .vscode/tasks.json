@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 {
     "version": "2.0.0",
     "tasks": [
@@ -39,46 +39,4 @@
             "problemMatcher": "$msCompile"
         }
     ]
-=======
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/Dentistry/Dentistry.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "publish",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/Dentistry/Dentistry.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "watch",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "watch",
-                "run",
-                "--project",
-                "${workspaceFolder}/Dentistry/Dentistry.csproj"
-            ],
-            "problemMatcher": "$msCompile"
-        }
-    ]
->>>>>>> 5b694e3b8eb24ee525a0709e3018ca03dbbeac6d
 }
