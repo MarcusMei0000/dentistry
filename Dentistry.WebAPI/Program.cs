@@ -20,7 +20,7 @@ builder.Services.AddControllers();
 builder.Services.AddSwaggerConfiguration();
 
 builder.Services.AddScoped<DbContext, Context>();
-builder.Services.AddTransient<IRepository<>,IRepository<>>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 //builder.Services.AddScoped(typeof(IRepository<>), typeof(IRepository<>));
 

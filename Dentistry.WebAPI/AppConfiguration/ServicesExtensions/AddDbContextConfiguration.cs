@@ -27,8 +27,7 @@ public static partial class ServicesExtensions
                             sqlServerOption.CommandTimeout(60 * 60);
                         });
 
-        }); 
-        services.AddDatabaseDeveloperPageExceptionFilter();
+        });
     }
     
 }
