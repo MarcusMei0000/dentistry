@@ -6,7 +6,6 @@ public class Context : DbContext
     public DbSet<Doctor> Doctors { get; set; }
     public DbSet<Patient> Patients { get; set; }
     public DbSet<Speciality> Specialities { get; set; }
-    public DbSet<DoctorSpeciality> DoctorSpecialities { get; set; }
     public DbSet<Schedule> Schedules { get; set; }
     public DbSet<Reception> Receptions { get; set; }
 
@@ -25,6 +24,10 @@ public class Context : DbContext
 
         builder.Entity<Doctor>().ToTable("doctors");
         builder.Entity<Doctor>().HasKey(x => x.Id);
+        builder.Entity<Doctor>().HasOne(x => x.Speciality)
+                                .WithMany(x => x.Doctors)
+                                .HasForeignKey(x => x.UserId)
+                                .OnDelete(DeleteBehavior.Cascade);
 
         #endregion
 
@@ -39,22 +42,6 @@ public class Context : DbContext
 
         builder.Entity<Speciality>().ToTable("specialities");
         builder.Entity<Speciality>().HasKey(x => x.Id);
-
-        #endregion
-
-        #region DoctorSpeciality
-
-        builder.Entity<DoctorSpeciality>().ToTable("doctors_specialities");
-        builder.Entity<DoctorSpeciality>().HasKey(x => x.Id);
-        builder.Entity<DoctorSpeciality>().HasOne(x => x.Doctor)
-                                    .WithMany(x => x.Specialities)
-                                    .HasForeignKey(x => x.DoctorId)
-                                    .OnDelete(DeleteBehavior.Cascade);
-
-        builder.Entity<DoctorSpeciality>().HasOne(x => x.Speciality)
-                                    .WithMany(x => x.Doctors)
-                                    .HasForeignKey(x => x.SpecialityId)
-                                    .OnDelete(DeleteBehavior.Cascade);
 
         #endregion
 

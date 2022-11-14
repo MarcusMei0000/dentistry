@@ -50,5 +50,45 @@
             </summary>
             <param name="services"></param>
         </member>
+        <member name="T:Dentistry.WebAPI.Controllers.UsersController">
+            <summary>
+            Doctors endpoints
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.#ctor(Dentistry.Repository.IRepository{Dentistry.Entities.Models.User})">
+            <summary>
+            Users controller
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.GetUsers">
+            <summary>
+            Get users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.GetUsers(System.Guid)">
+            <summary>
+            Get users
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.DeleteUsers(Dentistry.Entities.Models.User)">
+            <summary>
+            Delete users
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.PostUsers(Dentistry.Entities.Models.User)">
+            <summary>
+            Post users
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.Updatesers(Dentistry.Entities.Models.User)">
+            <summary>
+            Update users
+            </summary>
+            <param name="student"></param>
+        </member>
     </members>
 </doc>
