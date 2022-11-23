@@ -19,10 +19,8 @@ builder.Services.AddVersioningConfiguration();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerConfiguration();
 
-builder.Services.AddScoped<DbContext, Context>();
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-
-//builder.Services.AddScoped(typeof(IRepository<>), typeof(IRepository<>));
+builder.Services.AddRepositoryConfiguration();
+builder.Services.AddBusinessLogicConfiguration();
 
 var app = builder.Build();
 

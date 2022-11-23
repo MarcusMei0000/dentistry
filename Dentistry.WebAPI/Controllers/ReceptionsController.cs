@@ -13,38 +13,38 @@ namespace Dentistry.WebAPI.Controllers
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class ReceptionsController : ControllerBase
     {
-        private readonly IUserService userService;
+        private readonly IReceptionService receptionService;
         private readonly IMapper mapper;
 
         /// <summary>
         /// Doctors controller
         /// </summary>
-        public UsersController(IUserService userService, IMapper mapper)
+        public ReceptionsController(IReceptionService receptionService, IMapper mapper)
         {
-            this.userService = userService;
+            this.receptionService = receptionService;
             this.mapper = mapper;
         }
 
         /// <summary>
-        /// Get users by pages
+        /// Get receptions by pages
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult GetUsers([FromQuery] int limit = 20, [FromQuery] int offset = 0)
+        public IActionResult GetReceptions([FromQuery] int limit = 20, [FromQuery] int offset = 0)
         {
-            var pageModel = userService.GetUsers(limit, offset);
+            var pageModel = receptionService.GetReceptions(limit, offset);
 
-            return Ok(mapper.Map<PageResponse<UserResponse>>(pageModel));
+            return Ok(mapper.Map<PageResponse<ReceptionResponse>>(pageModel));
         }
 
         /// <summary>
-        /// Update user
+        /// Update reception
         /// </summary>
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserRequest model)
+        public IActionResult UpdateReception([FromRoute] Guid id, [FromBody] UpdateReceptionRequest model)
         {
             var validationResult = model.Validate();
             if (!validationResult.IsValid)
@@ -53,9 +53,9 @@ namespace Dentistry.WebAPI.Controllers
             }
             try
             {
-                var resultModel = userService.UpdateUser(id, mapper.Map<UpdateUserModel>(model));
+                var resultModel = receptionService.UpdateReception(id, mapper.Map<UpdateReceptionModel>(model));
 
-                return Ok(mapper.Map<UserResponse>(resultModel));
+                return Ok(mapper.Map<ReceptionResponse>(resultModel));
             }
             catch (Exception ex)
             {
@@ -64,15 +64,15 @@ namespace Dentistry.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Delete user
+        /// Delete reception
         /// </summary>
         [HttpDelete]
         [Route("{id}")]
-        public IActionResult DeleteUser([FromRoute] Guid id)
+        public IActionResult DeleteReception([FromRoute] Guid id)
         {
             try
             {
-                userService.DeleteUser(id);
+                receptionService.DeleteReception(id);
                 return Ok();
             }
             catch (Exception ex)
@@ -82,16 +82,16 @@ namespace Dentistry.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get user
+        /// Get reception
         /// </summary>
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetUser([FromRoute] Guid id)
+        public IActionResult GetReception([FromRoute] Guid id)
         {
             try
             {
-                var userModel = userService.GetUser(id);
-                return Ok(mapper.Map<UserResponse>(userModel));
+                var receptionModel = receptionService.GetReception(id);
+                return Ok(mapper.Map<ReceptionResponse>(receptionModel));
             }
             catch (Exception ex)
             {

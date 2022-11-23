@@ -13,38 +13,38 @@ namespace Dentistry.WebAPI.Controllers
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class SchedulesController : ControllerBase
     {
-        private readonly IUserService userService;
+        private readonly IScheduleService scheduleService;
         private readonly IMapper mapper;
 
         /// <summary>
         /// Doctors controller
         /// </summary>
-        public UsersController(IUserService userService, IMapper mapper)
+        public SchedulesController(IScheduleService scheduleService, IMapper mapper)
         {
-            this.userService = userService;
+            this.scheduleService = scheduleService;
             this.mapper = mapper;
         }
 
         /// <summary>
-        /// Get users by pages
+        /// Get schedules by pages
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult GetUsers([FromQuery] int limit = 20, [FromQuery] int offset = 0)
+        public IActionResult GetSchedules([FromQuery] int limit = 20, [FromQuery] int offset = 0)
         {
-            var pageModel = userService.GetUsers(limit, offset);
+            var pageModel = scheduleService.GetSchedules(limit, offset);
 
-            return Ok(mapper.Map<PageResponse<UserResponse>>(pageModel));
+            return Ok(mapper.Map<PageResponse<ScheduleResponse>>(pageModel));
         }
 
         /// <summary>
-        /// Update user
+        /// Update schedule
         /// </summary>
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserRequest model)
+        public IActionResult UpdateSchedule([FromRoute] Guid id, [FromBody] UpdateScheduleRequest model)
         {
             var validationResult = model.Validate();
             if (!validationResult.IsValid)
@@ -53,9 +53,9 @@ namespace Dentistry.WebAPI.Controllers
             }
             try
             {
-                var resultModel = userService.UpdateUser(id, mapper.Map<UpdateUserModel>(model));
+                var resultModel = scheduleService.UpdateSchedule(id, mapper.Map<UpdateScheduleModel>(model));
 
-                return Ok(mapper.Map<UserResponse>(resultModel));
+                return Ok(mapper.Map<ScheduleResponse>(resultModel));
             }
             catch (Exception ex)
             {
@@ -64,15 +64,15 @@ namespace Dentistry.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Delete user
+        /// Delete schedule
         /// </summary>
         [HttpDelete]
         [Route("{id}")]
-        public IActionResult DeleteUser([FromRoute] Guid id)
+        public IActionResult DeleteSchedule([FromRoute] Guid id)
         {
             try
             {
-                userService.DeleteUser(id);
+                scheduleService.DeleteSchedule(id);
                 return Ok();
             }
             catch (Exception ex)
@@ -82,16 +82,16 @@ namespace Dentistry.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get user
+        /// Get schedule
         /// </summary>
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetUser([FromRoute] Guid id)
+        public IActionResult GetSchedule([FromRoute] Guid id)
         {
             try
             {
-                var userModel = userService.GetUser(id);
-                return Ok(mapper.Map<UserResponse>(userModel));
+                var scheduleModel = scheduleService.GetSchedule(id);
+                return Ok(mapper.Map<ScheduleResponse>(scheduleModel));
             }
             catch (Exception ex)
             {

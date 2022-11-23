@@ -32,6 +32,12 @@
             </summary>
             <param name="builder"></param>
         </member>
+        <member name="M:Dentistry.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddMapperConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add serilog configuration
+            </summary>
+            <param name="builder"></param>
+        </member>
         <member name="M:Dentistry.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddSerilogConfiguration(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
             <summary>
             Add serilog configuration
@@ -50,45 +56,129 @@
             </summary>
             <param name="services"></param>
         </member>
+        <member name="T:Dentistry.WebAPI.Controllers.DoctorsController">
+            <summary>
+            Doctors endpoints
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.DoctorsController.#ctor(Dentistry.Services.Abstract.IDoctorService,AutoMapper.IMapper)">
+            <summary>
+            Doctors controller
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.DoctorsController.GetDoctors(System.Int32,System.Int32)">
+            <summary>
+            Get doctors by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.DoctorsController.UpdateDoctor(System.Guid,Dentistry.WebAPI.Models.UpdateDoctorRequest)">
+            <summary>
+            Update doctor
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.DoctorsController.DeleteDoctor(System.Guid)">
+            <summary>
+            Delete doctor
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.DoctorsController.GetDoctor(System.Guid)">
+            <summary>
+            Get doctor
+            </summary>
+        </member>
+        <member name="T:Dentistry.WebAPI.Controllers.ReceptionsController">
+            <summary>
+            Doctors endpoints
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.ReceptionsController.#ctor(Dentistry.Services.Abstract.IReceptionService,AutoMapper.IMapper)">
+            <summary>
+            Doctors controller
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.ReceptionsController.GetReceptions(System.Int32,System.Int32)">
+            <summary>
+            Get receptions by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.ReceptionsController.UpdateReception(System.Guid,Dentistry.WebAPI.Models.UpdateReceptionRequest)">
+            <summary>
+            Update reception
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.ReceptionsController.DeleteReception(System.Guid)">
+            <summary>
+            Delete reception
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.ReceptionsController.GetReception(System.Guid)">
+            <summary>
+            Get reception
+            </summary>
+        </member>
+        <member name="T:Dentistry.WebAPI.Controllers.SchedulesController">
+            <summary>
+            Doctors endpoints
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.SchedulesController.#ctor(Dentistry.Services.Abstract.IScheduleService,AutoMapper.IMapper)">
+            <summary>
+            Doctors controller
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.SchedulesController.GetSchedules(System.Int32,System.Int32)">
+            <summary>
+            Get schedules by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.SchedulesController.UpdateSchedule(System.Guid,Dentistry.WebAPI.Models.UpdateScheduleRequest)">
+            <summary>
+            Update schedule
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.SchedulesController.DeleteSchedule(System.Guid)">
+            <summary>
+            Delete schedule
+            </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.Controllers.SchedulesController.GetSchedule(System.Guid)">
+            <summary>
+            Get schedule
+            </summary>
+        </member>
         <member name="T:Dentistry.WebAPI.Controllers.UsersController">
             <summary>
             Doctors endpoints
             </summary>
         </member>
-        <member name="M:Dentistry.WebAPI.Controllers.UsersController.#ctor(Dentistry.Repository.IRepository{Dentistry.Entities.Models.User})">
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.#ctor(Dentistry.Services.Abstract.IUserService,AutoMapper.IMapper)">
             <summary>
-            Users controller
+            Doctors controller
             </summary>
         </member>
-        <member name="M:Dentistry.WebAPI.Controllers.UsersController.GetUsers">
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.GetUsers(System.Int32,System.Int32)">
             <summary>
-            Get users
+            Get users by pages
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Dentistry.WebAPI.Controllers.UsersController.GetUsers(System.Guid)">
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.UpdateUser(System.Guid,Dentistry.WebAPI.Models.UpdateUserRequest)">
             <summary>
-            Get users
+            Update user
             </summary>
-            <param name="user"></param>
         </member>
-        <member name="M:Dentistry.WebAPI.Controllers.UsersController.DeleteUsers(Dentistry.Entities.Models.User)">
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.DeleteUser(System.Guid)">
             <summary>
-            Delete users
+            Delete user
             </summary>
-            <param name="user"></param>
         </member>
-        <member name="M:Dentistry.WebAPI.Controllers.UsersController.PostUsers(Dentistry.Entities.Models.User)">
+        <member name="M:Dentistry.WebAPI.Controllers.UsersController.GetUser(System.Guid)">
             <summary>
-            Post users
+            Get user
             </summary>
-            <param name="user"></param>
-        </member>
-        <member name="M:Dentistry.WebAPI.Controllers.UsersController.Updatesers(Dentistry.Entities.Models.User)">
-            <summary>
-            Update users
-            </summary>
-            <param name="student"></param>
         </member>
     </members>
 </doc>

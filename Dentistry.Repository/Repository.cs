@@ -37,24 +37,34 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         return _context.Set<T>().FirstOrDefault(x => x.Id == id);
     }
 
+    private T Insert(T obj)
+    {
+        obj.Init();
+        var result = _context.Set<T>().Add(obj);
+        _context.SaveChanges();
+        return result.Entity;
+    }
+
+    private T Update(T obj)
+    {
+        obj.ModificationTime = DateTime.UtcNow;
+        var result = _context.Set<T>().Attach(obj);
+        _context.Entry(obj).State = EntityState.Modified;
+        _context.SaveChanges();
+        return result.Entity;
+    }
+
     public T Save(T obj)
     {
         try
         {
             if (obj.IsNew())
             {
-                obj.Init();
-                var result = _context.Set<T>().Add(obj);
-                _context.SaveChanges();
-                return result.Entity;
+                return Insert(obj);
             }
             else
             {
-                obj.ModificationTime = DateTime.UtcNow;
-                var result = _context.Set<T>().Attach(obj);
-                _context.Entry(obj).State = EntityState.Modified;
-                _context.SaveChanges();
-                return result.Entity;
+                return Update(obj);
             }
         }
         catch (Exception ex)
