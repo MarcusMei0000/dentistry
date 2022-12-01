@@ -26,7 +26,12 @@ public class ReceptionService : IReceptionService
 
         receptionsRepository.Delete(receptionToDelete);
     }
-
+    
+    public ReceptionModel CreateReception(CreateReceptionModel createReceptionModel)
+    {
+        Reception reception = mapper.Map<Reception>(createReceptionModel);
+        return mapper.Map<ReceptionModel>(receptionsRepository.Save(reception));
+    }
     public ReceptionModel GetReception(Guid id)
     {
         var reception = receptionsRepository.GetById(id);

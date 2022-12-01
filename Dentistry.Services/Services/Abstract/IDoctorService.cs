@@ -4,6 +4,7 @@ namespace Dentistry.Services.Abstract;
 
 public interface IDoctorService
 {
+    DoctorModel CreateDoctor(CreateDoctorModel createDoctorModel);
     DoctorModel GetDoctor(Guid id);
 
     DoctorModel UpdateDoctor(Guid id, UpdateDoctorModel doctor);

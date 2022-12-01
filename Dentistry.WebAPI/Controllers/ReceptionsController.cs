@@ -98,5 +98,24 @@ namespace Dentistry.WebAPI.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+
+        [HttpPost]
+        public IActionResult CreateReception([FromBody] CreateReceptionRequest createReceptionRequest)
+        {
+            var validationResult = createReceptionRequest.Validate();
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
+            }
+            try
+            {
+                var resultModel = receptionService.CreateReception(mapper.Map<CreateReceptionModel>(createReceptionRequest));
+                return Ok(resultModel);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
     }
 }

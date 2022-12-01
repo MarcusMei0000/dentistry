@@ -15,6 +15,11 @@ public class DoctorService : IDoctorService
         this.doctorsRepository = doctorsRepository;
         this.mapper = mapper;
     }
+    public DoctorModel CreateDoctor(CreateDoctorModel createDoctorModel)
+    {
+        Doctor doctor = mapper.Map<Doctor>(createDoctorModel);
+        return mapper.Map<DoctorModel>(doctorsRepository.Save(doctor));
+    }
 
     public void DeleteDoctor(Guid id)
     {
@@ -55,7 +60,7 @@ public class DoctorService : IDoctorService
             throw new Exception("Doctor not found");
         }
 
-        existingDoctor.ReceprionRoom = doctor.ReceptionRoom;
+        existingDoctor.ReceptionRoom = doctor.ReceptionRoom;
         existingDoctor.Schedules = doctor.Schedules;
 
         existingDoctor = doctorsRepository.Save(existingDoctor);

@@ -35,7 +35,7 @@ namespace Dentistry.Entities.Migrations
                     b.Property<DateTime>("ModificationTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<short>("ReceprionRoom")
+                    b.Property<short>("ReceptionRoom")
                         .HasColumnType("smallint");
 
                     b.Property<Guid>("UserId")

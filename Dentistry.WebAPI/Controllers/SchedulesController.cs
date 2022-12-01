@@ -98,5 +98,24 @@ namespace Dentistry.WebAPI.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+
+        [HttpPost]
+        public IActionResult CreateSchedule([FromBody] CreateScheduleRequest createScheduleRequest)
+        {
+            var validationResult = createScheduleRequest.Validate();
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
+            }
+            try
+            {
+                var resultModel = scheduleService.CreateSchedule(mapper.Map<CreateScheduleModel>(createScheduleRequest));
+                return Ok(resultModel);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
     }
 }

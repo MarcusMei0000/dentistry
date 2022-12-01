@@ -67,7 +67,7 @@ namespace Dentistry.Entities.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ReceprionRoom = table.Column<short>(type: "smallint", nullable: false),
+                    ReceptionRoom = table.Column<short>(type: "smallint", nullable: false),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModificationTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },

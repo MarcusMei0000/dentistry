@@ -98,5 +98,25 @@ namespace Dentistry.WebAPI.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+
+         [HttpPost]
+        public IActionResult CreateDoctor([FromBody] CreateDoctorRequest createDoctorRequest)
+        {
+            var validationResult = createDoctorRequest.Validate();
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
+            }
+
+            try
+            {
+                var resultModel = doctorService.CreateDoctor(mapper.Map<CreateDoctorModel>(createDoctorRequest));
+                return Ok(resultModel);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
     }
 }

@@ -4,6 +4,7 @@ namespace Dentistry.Services.Abstract;
 
 public interface IScheduleService
 {
+    ScheduleModel CreateSchedule(CreateScheduleModel ScheduleModell);
     ScheduleModel GetSchedule(Guid id);
 
     ScheduleModel UpdateSchedule(Guid id, UpdateScheduleModel schedule);
