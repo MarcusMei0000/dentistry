@@ -15,6 +15,11 @@ public class ScheduleService : IScheduleService
         this.schedulesRepository = schedulesRepository;
         this.mapper = mapper;
     }
+    public ScheduleModel CreateSchedule(CreateScheduleModel createScheduleModel)
+    {
+        Schedule schedule = mapper.Map<Schedule>(createScheduleModel);
+        return mapper.Map<ScheduleModel>(schedulesRepository.Save(schedule));
+    }
 
     public void DeleteSchedule(Guid id)
     {
@@ -54,8 +59,8 @@ public class ScheduleService : IScheduleService
             throw new Exception("Schedule not found");
         }
 
-        existingSchedule.ReceptionStart = schedule.ReceptionStart;
-        existingSchedule.ReceptionEnd = schedule.ReceptionEnd;
+        existingSchedule.ReceptionStart = schedule.ScheduleStart;
+        existingSchedule.ReceptionEnd = schedule.ScheduleEnd;
         existingSchedule.Receptions = schedule.Receptions;
 
         existingSchedule = schedulesRepository.Save(existingSchedule);
