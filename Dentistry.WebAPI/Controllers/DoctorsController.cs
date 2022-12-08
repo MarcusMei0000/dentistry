@@ -100,7 +100,7 @@ namespace Dentistry.WebAPI.Controllers
         }
 
          [HttpPost]
-        public IActionResult CreateDoctor([FromBody] CreateDoctorRequest createDoctorRequest)
+        public IActionResult CreateDoctor([FromBody] CreateDoctorRequest createDoctorRequest, [FromQuery] Guid ScheduleId, [FromQuery] Guid SpecialityId)
         {
             var validationResult = createDoctorRequest.Validate();
             if (!validationResult.IsValid)
@@ -110,7 +110,7 @@ namespace Dentistry.WebAPI.Controllers
 
             try
             {
-                var resultModel = doctorService.CreateDoctor(mapper.Map<CreateDoctorModel>(createDoctorRequest));
+                var resultModel = doctorService.CreateDoctor(mapper.Map<CreateDoctorModel>(createDoctorRequest), ScheduleId, SpecialityId);
                 return Ok(resultModel);
             }
             catch (Exception e)

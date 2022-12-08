@@ -15,10 +15,31 @@ public class ScheduleService : IScheduleService
         this.schedulesRepository = schedulesRepository;
         this.mapper = mapper;
     }
-    public ScheduleModel CreateSchedule(CreateScheduleModel createScheduleModel)
-    {
-        Schedule schedule = mapper.Map<Schedule>(createScheduleModel);
-        return mapper.Map<ScheduleModel>(schedulesRepository.Save(schedule));
+    public ScheduleModel CreateSchedule(CreateScheduleModel createScheduleModel, Guid DoctorId, Guid ReceptionId)
+    { 
+        if(schedulesRepository.GetAll(x => x.Id == createScheduleModel.Id).FirstOrDefault()!=null)
+        {
+            throw new Exception ("Attempt to create a non-unique object!");
+        }
+
+        if(doctorsRepository.GetAll(x => x.Id == createScheduleModel.DoctorId).FirstOrDefault()!=null)
+        {
+            throw new Exception ("The object does not exist in the database!");
+        }
+
+        if(receptionsRepository.GetAll(x => x.Id == createScheduleModel.ReceptionId).FirstOrDefault() == null)
+        {
+            throw new Exception ("The object does not exist in the database!");
+        }
+
+        CreateScheduleModel createSchedule = new CreateScheduleModel();
+        createSchedule.DoctorId = createScheduleModel.DoctorId;
+        createSchedule.ReceptionId = createScheduleModel.ReceptionId;
+        createSchedule.ReceptionStart = createScheduleModel.ReceptionStart;
+        createSchedule.ReceptionEnd = createScheduleModel.ReceptionEnd;
+        schedulesRepository.Save(mapper.Map<Ticket>(createSchedule));
+
+        return createSchedule;
     }
 
     public void DeleteSchedule(Guid id)

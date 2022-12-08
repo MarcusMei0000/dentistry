@@ -100,7 +100,7 @@ namespace Dentistry.WebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateReception([FromBody] CreateReceptionRequest createReceptionRequest)
+        public IActionResult CreateReception([FromBody] CreateReceptionRequest createReceptionRequest, [FromQuery] Guid ScheduleId, [FromQuery] Guid PatientId)
         {
             var validationResult = createReceptionRequest.Validate();
             if (!validationResult.IsValid)
@@ -109,7 +109,7 @@ namespace Dentistry.WebAPI.Controllers
             }
             try
             {
-                var resultModel = receptionService.CreateReception(mapper.Map<CreateReceptionModel>(createReceptionRequest));
+                var resultModel = receptionService.CreateReception(mapper.Map<CreateReceptionModel>(createReceptionRequest), ScheduleId, PatientId);
                 return Ok(resultModel);
             }
             catch (Exception e)

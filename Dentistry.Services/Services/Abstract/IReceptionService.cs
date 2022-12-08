@@ -4,7 +4,7 @@ namespace Dentistry.Services.Abstract;
 
 public interface IReceptionService
 {
-    ReceptionModel CreateReception(CreateReceptionModel createReceptionModel);
+    ReceptionModel CreateReception(CreateReceptionModel createReceptionModel, Guid ScheduleId, Guid PatientId);
     ReceptionModel GetReception(Guid id);
 
     ReceptionModel UpdateReception(Guid id, UpdateReceptionModel reception);

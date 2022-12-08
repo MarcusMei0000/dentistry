@@ -27,10 +27,32 @@ public class ReceptionService : IReceptionService
         receptionsRepository.Delete(receptionToDelete);
     }
     
-    public ReceptionModel CreateReception(CreateReceptionModel createReceptionModel)
+    public ReceptionModel CreateReception(CreateReceptionModel createReceptionModel, Guid ScheduleId, Guid PatientId)
     {
-        Reception reception = mapper.Map<Reception>(createReceptionModel);
-        return mapper.Map<ReceptionModel>(receptionsRepository.Save(reception));
+        if(receptionsRepository.GetAll(x => x.Id == createDoctorModel.Id).FirstOrDefault()!=null)
+        {
+            throw new Exception ("Attempt to create a non-unique object!");
+        }
+
+        if(schedulesRepository.GetAll(x => x.Id == createDoctorModel.ScheduleId).FirstOrDefault()!=null)
+        {
+            throw new Exception ("The object does not exist in the database!");
+        }
+
+        if(patientRepository.GetAll(x => x.Id == createDoctorModel.PatientId).FirstOrDefault() == null)
+        {
+            throw new Exception ("The object does not exist in the database!");
+        }
+
+        CreateReceptionModel createReception = new CreateReceptionModel();
+        createReception.ScheduleId = createReceptionModel.ScheduleId;
+        createReception.PatientId = createReceptionModel.PatientId;
+        createReception.ReceptionDateTimeStart = createReceptionModel.ReceptionDateTimeStart;
+        createReception.ReceptionDateTimeFinish = createReceptionModel.ReceptionDateTimeFinish;
+
+        receptionsRepository.Save(mapper.Map<Ticket>(createReception));
+
+        return createReception;
     }
     public ReceptionModel GetReception(Guid id)
     {

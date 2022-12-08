@@ -15,10 +15,30 @@ public class DoctorService : IDoctorService
         this.doctorsRepository = doctorsRepository;
         this.mapper = mapper;
     }
-    public DoctorModel CreateDoctor(CreateDoctorModel createDoctorModel)
+    public DoctorModel CreateDoctor(CreateDoctorModel createDoctorModel, Guid ScheduleId, Guid SpecialityId)
     {
-        Doctor doctor = mapper.Map<Doctor>(createDoctorModel);
-        return mapper.Map<DoctorModel>(doctorsRepository.Save(doctor));
+        if(doctorsRepository.GetAll(x => x.Id == createDoctorModel.Id).FirstOrDefault()!=null)
+        {
+            throw new Exception ("Attempt to create a non-unique object!");
+        }
+
+        if(schedulesRepository.GetAll(x => x.Id == createDoctorModel.ScheduleId).FirstOrDefault()!=null)
+        {
+            throw new Exception ("The object does not exist in the database!");
+        }
+
+        if(specialityRepository.GetAll(x => x.Id == createDoctorModel.SpecialityId).FirstOrDefault() == null)
+        {
+            throw new Exception ("The object does not exist in the database!");
+        }
+
+        CreateDoctorModel createDoctor = new CreateDoctorModel();
+        createDoctor.ScheduleId = createDoctorModel.ScheduleId;
+        createDoctor.SpecialityId = createDoctorModel.SpecialityId;
+        createDoctor.ReceptionRoom = createDoctorModel.ReceptionRoom;
+        doctorsRepository.Save(mapper.Map<Ticket>(createDoctor));
+
+        return createDoctor;
     }
 
     public void DeleteDoctor(Guid id)

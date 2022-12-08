@@ -100,7 +100,7 @@ namespace Dentistry.WebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateSchedule([FromBody] CreateScheduleRequest createScheduleRequest)
+        public IActionResult CreateSchedule([FromBody] CreateScheduleRequest createScheduleRequest, [FromQuery] Guid DoctorId, [FromQuery] Guid ReceptionId)
         {
             var validationResult = createScheduleRequest.Validate();
             if (!validationResult.IsValid)
@@ -109,7 +109,7 @@ namespace Dentistry.WebAPI.Controllers
             }
             try
             {
-                var resultModel = scheduleService.CreateSchedule(mapper.Map<CreateScheduleModel>(createScheduleRequest));
+                var resultModel = scheduleService.CreateSchedule(mapper.Map<CreateScheduleModel>(createScheduleRequest), DoctorId, ReceptionId);
                 return Ok(resultModel);
             }
             catch (Exception e)
