@@ -9,10 +9,14 @@ namespace Dentistry.Services.Implementation;
 public class DoctorService : IDoctorService
 {
     private readonly IRepository<Doctor> doctorsRepository;
+    private readonly IRepository<Schedule> schedulesRepository;
+    private readonly IRepository<Speciality> specialityRepository;
     private readonly IMapper mapper;
-    public DoctorService(IRepository<Doctor> doctorsRepository, IMapper mapper)
+    public DoctorService(IRepository<Doctor> doctorsRepository, IRepository<Schedule> schedulesRepository, IRepository<Speciality> specialityRepository, IMapper mapper)
     {
         this.doctorsRepository = doctorsRepository;
+        this.schedulesRepository = schedulesRepository;
+        this.specialityRepository = specialityRepository;
         this.mapper = mapper;
     }
     public DoctorModel CreateDoctor(CreateDoctorModel createDoctorModel, Guid ScheduleId, Guid SpecialityId)
@@ -22,21 +26,11 @@ public class DoctorService : IDoctorService
             throw new Exception ("Attempt to create a non-unique object!");
         }
 
-        if(schedulesRepository.GetAll(x => x.Id == createDoctorModel.ScheduleId).FirstOrDefault()!=null)
-        {
-            throw new Exception ("The object does not exist in the database!");
-        }
-
-        if(specialityRepository.GetAll(x => x.Id == createDoctorModel.SpecialityId).FirstOrDefault() == null)
-        {
-            throw new Exception ("The object does not exist in the database!");
-        }
-
-        CreateDoctorModel createDoctor = new CreateDoctorModel();
-        createDoctor.ScheduleId = createDoctorModel.ScheduleId;
-        createDoctor.SpecialityId = createDoctorModel.SpecialityId;
+        DoctorModel createDoctor = new DoctorModel();
+        createDoctor.Schedules = createDoctorModel.Schedules;
+        createDoctor.Speciality = createDoctorModel.Speciality;
         createDoctor.ReceptionRoom = createDoctorModel.ReceptionRoom;
-        doctorsRepository.Save(mapper.Map<Ticket>(createDoctor));
+        doctorsRepository.Save(mapper.Map<Doctor>(createDoctor));
 
         return createDoctor;
     }

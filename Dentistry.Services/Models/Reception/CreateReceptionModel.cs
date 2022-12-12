@@ -1,7 +1,7 @@
 using Dentistry.Entities.Models;
 
 namespace Dentistry.Services.Models;
-public class CreateReceptionModel
+public class CreateReceptionModel : BaseModel
 {
     public Guid PatientId { get; set; }
     public Patient Patient { get; set; }

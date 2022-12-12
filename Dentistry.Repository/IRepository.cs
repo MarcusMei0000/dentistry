@@ -3,7 +3,7 @@ using Dentistry.Entities.Models;
 
 namespace Dentistry.Repository;
 
-public interface IRepository<T> where T : BaseEntity
+public interface IRepository<T> where T  : class, IBaseEntity
 {
     IQueryable<T> GetAll();
     IQueryable<T> GetAll(Expression<Func<T, bool>> predicate);

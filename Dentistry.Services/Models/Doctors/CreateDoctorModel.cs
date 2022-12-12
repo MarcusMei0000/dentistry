@@ -1,7 +1,7 @@
 using Dentistry.Entities.Models;
 
 namespace Dentistry.Services.Models;
-public class CreateDoctorModel
+public class CreateDoctorModel : BaseModel
 {
     public short ReceptionRoom { get; set; }
 

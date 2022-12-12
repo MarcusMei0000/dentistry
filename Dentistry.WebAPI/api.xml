@@ -9,6 +9,12 @@
             Application builder extensions
             </summary>
         </member>
+        <member name="M:Dentistry.WebAPI.AppConfiguration.ApplicationExtensions.AppExtensions.UseAuthorizationConfiguration(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Use serilog configuration
+            </summary>
+            <param name="app"></param>
+        </member>
         <member name="M:Dentistry.WebAPI.AppConfiguration.ApplicationExtensions.AppExtensions.UseSerilogConfiguration(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
             Use serilog configuration
@@ -25,6 +31,12 @@
             <summary>
             Services extensions
             </summary>
+        </member>
+        <member name="M:Dentistry.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddAuthorizationConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add serilog configuration
+            </summary>
+            <param name="builder"></param>
         </member>
         <member name="M:Dentistry.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddDbContextConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -44,7 +56,7 @@
             </summary>
             <param name="builder"></param>
         </member>
-        <member name="M:Dentistry.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddSwaggerConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Dentistry.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddSwaggerConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Add swagger settings
             </summary>
@@ -178,6 +190,43 @@
         <member name="M:Dentistry.WebAPI.Controllers.UsersController.GetUser(System.Guid)">
             <summary>
             Get user
+            </summary>
+        </member>
+        <member name="T:Dentistry.Controllers.RolesController">
+            <summary>
+            Roles endpoints
+            </summary>
+        </member>
+        <member name="M:Dentistry.Controllers.RolesController.#ctor(Dentistry.Services.Abstract.IRoleService,AutoMapper.IMapper)">
+            <summary>
+            Roles controller
+            </summary>
+        </member>
+        <member name="M:Dentistry.Controllers.RolesController.GetRoles(System.Int32,System.Int32)">
+            <summary>
+            Get Roles by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dentistry.Controllers.RolesController.AddRole(Dentistry.Services.Models.RoleModel)">
+            <summary>
+            Add Role
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dentistry.Controllers.RolesController.UpdateRole(System.Guid,Dentistry.WebAPI.Models.UpdateRoleRequest)">
+            <summary>
+            Update Role
+            </summary>
+        </member>
+        <member name="M:Dentistry.Controllers.RolesController.DeleteRole(System.Guid)">
+            <summary>
+            Delete Role
+            </summary>
+        </member>
+        <member name="M:Dentistry.Controllers.RolesController.GetRole(System.Guid)">
+            <summary>
+            Get Role
             </summary>
         </member>
     </members>

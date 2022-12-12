@@ -6,7 +6,7 @@ namespace Dentistry.Services.MapperProfile;
 
 public class ServicesProfile : Profile
 {
-    public ServicesProfile()
+    public ServicesProfile() 
     {
         #region Users
 

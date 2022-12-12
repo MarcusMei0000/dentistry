@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 namespace Dentistry.Entities.Models;
 public class Doctor : BaseEntity
 {

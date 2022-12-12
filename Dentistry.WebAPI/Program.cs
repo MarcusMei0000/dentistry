@@ -1,8 +1,10 @@
 using Dentistry.WebAPI.AppConfiguration.ServicesExtensions;
 using Dentistry.WebAPI.AppConfiguration.ApplicationExtensions;
+using Dentistry.WebAPI.AppConfiguration;
 using Dentistry.Entities;
-using Dentistry.Repository;
 using Microsoft.EntityFrameworkCore;
+using Dentistry.Repository;
+using Dentistry.Services;
 using Serilog;
 
 var configuration = new ConfigurationBuilder()
@@ -16,14 +18,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddSerilogConfiguration();
 builder.Services.AddDbContextConfiguration(configuration);
 builder.Services.AddVersioningConfiguration();
+builder.Services.AddMapperConfiguration();
 builder.Services.AddControllers();
-builder.Services.AddSwaggerConfiguration();
+builder.Services.AddSwaggerConfiguration(configuration);
 
 builder.Services.AddRepositoryConfiguration();
 builder.Services.AddBusinessLogicConfiguration();
+builder.Services.AddAuthorizationConfiguration(configuration);
+
+builder.Services.AddScoped<DbContext, Context>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 var app = builder.Build();
-
+await RepositoryInitializer.InitializeRepository(app.Services);
 app.UseSerilogConfiguration();
 
 // Configure the HTTP request pipeline.
@@ -33,7 +40,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthorization();
+
+app.UseAuthorizationConfiguration();
+app.UseMiddleware(typeof(ExceptionsMiddleware));
 app.MapControllers();
 
 try

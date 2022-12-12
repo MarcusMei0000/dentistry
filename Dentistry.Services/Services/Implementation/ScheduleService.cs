@@ -9,8 +9,10 @@ namespace Dentistry.Services.Implementation;
 public class ScheduleService : IScheduleService
 {
     private readonly IRepository<Schedule> schedulesRepository;
+    
+    private readonly IRepository<Schedule> doctorsRepository;
     private readonly IMapper mapper;
-    public ScheduleService(IRepository<Schedule> schedulesRepository, IMapper mapper)
+    public ScheduleService(IRepository<Schedule> schedulesRepository, IRepository<Schedule> doctorsRepository, IMapper mapper)
     {
         this.schedulesRepository = schedulesRepository;
         this.mapper = mapper;
@@ -27,17 +29,11 @@ public class ScheduleService : IScheduleService
             throw new Exception ("The object does not exist in the database!");
         }
 
-        if(receptionsRepository.GetAll(x => x.Id == createScheduleModel.ReceptionId).FirstOrDefault() == null)
-        {
-            throw new Exception ("The object does not exist in the database!");
-        }
-
-        CreateScheduleModel createSchedule = new CreateScheduleModel();
+        ScheduleModel createSchedule = new ScheduleModel();
         createSchedule.DoctorId = createScheduleModel.DoctorId;
-        createSchedule.ReceptionId = createScheduleModel.ReceptionId;
         createSchedule.ReceptionStart = createScheduleModel.ReceptionStart;
         createSchedule.ReceptionEnd = createScheduleModel.ReceptionEnd;
-        schedulesRepository.Save(mapper.Map<Ticket>(createSchedule));
+        schedulesRepository.Save(mapper.Map<Schedule>(createSchedule));
 
         return createSchedule;
     }

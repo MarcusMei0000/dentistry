@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Dentistry.Entities.Models;
 
-public class Context : DbContext
+public class Context  : IdentityDbContext<User, UserRole, Guid>
 {
     public DbSet<Doctor> Doctors { get; set; }
     public DbSet<Patient> Patients { get; set; }
@@ -13,11 +15,18 @@ public class Context : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        base.OnModelCreating(builder);
         #region Users
 
         builder.Entity<User>().ToTable("users");
         builder.Entity<User>().HasKey(x => x.Id);
-
+                                
+        builder.Entity<IdentityUserClaim<Guid>>().ToTable("user_claims");
+        builder.Entity<IdentityUserLogin<Guid>>().ToTable("user_logins");
+        builder.Entity<IdentityUserToken<Guid>>().ToTable("user_tokens");
+        builder.Entity<UserRole>().ToTable("user_roles");
+        builder.Entity<IdentityRoleClaim<Guid>>().ToTable("user_role_claims");
+        builder.Entity<IdentityUserRole<Guid>>().ToTable("user_role_owners");
         #endregion
 
         #region Doctors
@@ -27,8 +36,7 @@ public class Context : DbContext
         builder.Entity<Doctor>().HasOne(x => x.Speciality)
                                 .WithMany(x => x.Doctors)
                                 .HasForeignKey(x => x.UserId)
-                                .OnDelete(DeleteBehavior.Cascade);
-
+                                .OnDelete(DeleteBehavior.Cascade);               
         #endregion
 
         #region Patient

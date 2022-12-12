@@ -9,10 +9,12 @@ namespace Dentistry.Services.Implementation;
 public class ReceptionService : IReceptionService
 {
     private readonly IRepository<Reception> receptionsRepository;
+    private readonly IRepository<Patient> patientRepository;
     private readonly IMapper mapper;
-    public ReceptionService(IRepository<Reception> receptionsRepository, IMapper mapper)
+    public ReceptionService(IRepository<Reception> receptionsRepository, IRepository<Patient> patientRepository, IMapper mapper)
     {
         this.receptionsRepository = receptionsRepository;
+        this.patientRepository = patientRepository;
         this.mapper = mapper;
     }
 
@@ -29,28 +31,23 @@ public class ReceptionService : IReceptionService
     
     public ReceptionModel CreateReception(CreateReceptionModel createReceptionModel, Guid ScheduleId, Guid PatientId)
     {
-        if(receptionsRepository.GetAll(x => x.Id == createDoctorModel.Id).FirstOrDefault()!=null)
+        if(receptionsRepository.GetAll(x => x.Id == createReceptionModel.Id).FirstOrDefault()!=null)
         {
             throw new Exception ("Attempt to create a non-unique object!");
         }
 
-        if(schedulesRepository.GetAll(x => x.Id == createDoctorModel.ScheduleId).FirstOrDefault()!=null)
+        if(patientRepository.GetAll(x => x.Id == createReceptionModel.PatientId).FirstOrDefault() == null)
         {
             throw new Exception ("The object does not exist in the database!");
         }
 
-        if(patientRepository.GetAll(x => x.Id == createDoctorModel.PatientId).FirstOrDefault() == null)
-        {
-            throw new Exception ("The object does not exist in the database!");
-        }
-
-        CreateReceptionModel createReception = new CreateReceptionModel();
+        ReceptionModel createReception = new ReceptionModel();
         createReception.ScheduleId = createReceptionModel.ScheduleId;
         createReception.PatientId = createReceptionModel.PatientId;
         createReception.ReceptionDateTimeStart = createReceptionModel.ReceptionDateTimeStart;
         createReception.ReceptionDateTimeFinish = createReceptionModel.ReceptionDateTimeFinish;
 
-        receptionsRepository.Save(mapper.Map<Ticket>(createReception));
+        receptionsRepository.Save(mapper.Map<Reception>(createReception));
 
         return createReception;
     }
