@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dentistry.Repository", "Den
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dentistry.WebAPI", "Dentistry.WebAPI\Dentistry.WebAPI.csproj", "{75F802DA-5562-4F9F-ACB8-ECFE7DEF0072}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dentistry.Test", "Dentistry.Test\Dentistry.Test.csproj", "{D5C8A172-2538-493E-8AEA-2D05D50A56DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dentistry.Services", "Dentistry.Services\Dentistry.Services.csproj", "{0DCA8969-B8DF-4172-9AEF-E13CDD3667D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{75F802DA-5562-4F9F-ACB8-ECFE7DEF0072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75F802DA-5562-4F9F-ACB8-ECFE7DEF0072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75F802DA-5562-4F9F-ACB8-ECFE7DEF0072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C8A172-2538-493E-8AEA-2D05D50A56DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C8A172-2538-493E-8AEA-2D05D50A56DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C8A172-2538-493E-8AEA-2D05D50A56DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C8A172-2538-493E-8AEA-2D05D50A56DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DCA8969-B8DF-4172-9AEF-E13CDD3667D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DCA8969-B8DF-4172-9AEF-E13CDD3667D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DCA8969-B8DF-4172-9AEF-E13CDD3667D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DCA8969-B8DF-4172-9AEF-E13CDD3667D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
