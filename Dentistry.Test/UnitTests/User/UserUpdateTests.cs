@@ -14,20 +14,15 @@ public partial class UserTests
     public async Task UpdateUser_Success()
     {
         var model = new RegisterUserModel(){
-            FirstName = "Test 1",
-            LastName = "Test 2",
-            Patronimyc = "Test 3",
-            Password = "Test 4",
-            Email = "test@test",
+            Login = "t@tt",
+            Password = "test1", 
             Role = Entities.Models.Role.Admin            
         };
 
         var resultModel = await authService.RegisterUser(model);
 
         var newModel = new UpdateUserModel(){
-            FirstName = "new first name",
-            LastName = "new last name",
-            Patronymic = "new patronymic"
+            Login = "new@Login"
         };
 
         var resultModel2 = userService.UpdateUser(resultModel.Id, newModel);

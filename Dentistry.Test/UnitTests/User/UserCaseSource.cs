@@ -6,6 +6,7 @@ public static class UserCaseSource
         {
             String.Empty,
             " ",
-            new string(' ',10)
+            new string(' ',10),
+            "фариложсфку"
         };
 }

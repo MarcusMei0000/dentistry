@@ -14,19 +14,13 @@ public partial class UserTests
     public async Task RegisterUser_Success()
     {
         var model = new RegisterUserModel(){
-            FirstName = "Test 1",
-            LastName = "Test 2",
-            Patronimyc = "Test 3",
-            Password = "Test 4",
-            Email = "test@test",
+            Login = "t@tt",
+            Password = "test1", 
             Role = Entities.Models.Role.Admin            
         };
 
         var resultModel = await authService.RegisterUser(model);
-        Assert.AreEqual(model.Email, resultModel.Email);
-        Assert.AreEqual(model.FirstName, resultModel.FirstName);
-        Assert.AreEqual(model.LastName, resultModel.LastName);
-        Assert.AreEqual(model.Patronimyc, resultModel.Patronymic);
+        Assert.AreEqual(model.Login, resultModel.Login);
         Assert.AreEqual(model.Role, resultModel.Role);
 
         var user = userRepository.GetById(resultModel.Id);
@@ -39,13 +33,10 @@ public partial class UserTests
     [Test]
     public async Task RegisterUser_EmailExists()
     {
-        var model = new RegisterUserModel(){
-            FirstName = "Test 1",
-            LastName = "Test 2",
-            Patronimyc = "Test 3",
-            Password = "Test 4",
-            Email = "test@test",
-            Role = Entities.Models.Role.Admin            
+        var model = new RegisterUserModel(){           
+            Login = "t@tt",
+            Password = "test1", 
+            Role = Entities.Models.Role.Admin               
         };
 
         var resultModel = await authService.RegisterUser(model);
@@ -60,11 +51,8 @@ public partial class UserTests
     public async Task RegisterUser_PasswordIsInvalid(string password)
     {
         var model = new RegisterUserModel(){
-            FirstName = "Test 1",
-            LastName = "Test 2",
-            Patronimyc = "Test 3",
-            Password = password,
-            Email = "test@test",
+            Login = "t@tt",
+            Password = password, 
             Role = Entities.Models.Role.Admin            
         };
 

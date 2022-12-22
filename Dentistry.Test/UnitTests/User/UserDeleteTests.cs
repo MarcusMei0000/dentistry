@@ -12,11 +12,8 @@ public partial class UserTests
     public async Task DeleteUser_Success()
     {
         var model = new RegisterUserModel(){
-            FirstName = "Test 1",
-            LastName = "Test 2",
-            Patronimyc = "Test 3",
-            Password = "Test 4",
-            Email = "test@test",
+            Login = "t@tt",
+            Password = "test1", 
             Role = Entities.Models.Role.Admin            
         };
 
